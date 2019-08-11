@@ -6,7 +6,8 @@ import {
   View,
   TouchableOpacity,
   Image,
-  ScrollView
+  ScrollView,
+  StyleSheet
 } from "react-native";
 import CameraButton from "../CameraButton";
 import Meme from "../Meme";
@@ -24,16 +25,9 @@ class Gallery extends React.Component {
     //   "file:///data/user/0/com.meme_ai/cache/Camera/c4812e50-72ea-40c6-95c6-5af7ba505365.jpg";
 
     return (
-      <View
-        style={{
-          flex: 1,
-          justifyContent: "center",
-          alignItems: "center",
-          padding: 20
-        }}
-      >
+      <View style={styles.container}>
         {uri && (
-          <ScrollView style={{ width: "100%", height: 200, flex: 1 }}>
+          <ScrollView style={styles.scrollView}>
             <Meme uri={uri} />
             <Meme uri={uri} />
             <Meme uri={uri} />
@@ -46,5 +40,12 @@ class Gallery extends React.Component {
     );
   }
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1
+  },
+  scrollView: { width: "100%", height: 200, flex: 1, padding: 20 }
+});
 
 export default Gallery;

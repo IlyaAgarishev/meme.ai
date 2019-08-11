@@ -6,7 +6,8 @@ import {
   View,
   TouchableOpacity,
   Image,
-  ScrollView
+  ScrollView,
+  StyleSheet
 } from "react-native";
 import CameraButton from "../CameraButton";
 import { RNCamera } from "react-native-camera";
@@ -20,11 +21,15 @@ class App extends React.Component {
   render() {
     const { navigate } = this.props.navigation;
     return (
-      <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
+      <View style={styles.container}>
         <CameraButton navigate={navigate} />
       </View>
     );
   }
 }
+
+const styles = StyleSheet.create({
+  container: { flex: 1, justifyContent: "center", alignItems: "center" }
+});
 
 export default App;

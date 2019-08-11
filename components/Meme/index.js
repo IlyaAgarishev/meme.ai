@@ -6,7 +6,8 @@ import {
   View,
   TouchableOpacity,
   Image,
-  ScrollView
+  ScrollView,
+  StyleSheet
 } from "react-native";
 import CameraButton from "../CameraButton";
 
@@ -20,30 +21,10 @@ const Meme = props => {
   ];
 
   return (
-    <View style={{ marginBottom: 30 }}>
-      <Image
-        source={{ uri: uri }}
-        style={{
-          width: "100%",
-          height: 300,
-          borderRadius: 10
-        }}
-      />
-      <View
-        style={{
-          display: "flex",
-          flexDirection: "row",
-          justifyContent: "space-between",
-          marginTop: 5
-        }}
-      >
-        <View
-          style={{
-            display: "flex",
-            flexDirection: "row",
-            alignItems: "flex-end"
-          }}
-        >
+    <View style={styles.container}>
+      <Image source={{ uri: uri }} style={styles.memeImg} />
+      <View style={styles.shareButtons}>
+        <View style={styles.leftButtons}>
           {leftIcons.map((el, i) => {
             return (
               <Image
@@ -54,13 +35,7 @@ const Meme = props => {
             );
           })}
         </View>
-        <View
-          style={{
-            display: "flex",
-            flexDirection: "row",
-            alignItems: "flex-end"
-          }}
-        >
+        <View style={styles.rightButtons}>
           <Image
             source={require("../../img/share.png")}
             style={{ width: 24, height: 25, marginRight: 20 }}
@@ -74,4 +49,32 @@ const Meme = props => {
     </View>
   );
 };
+
+const styles = StyleSheet.create({
+  container: {
+    marginBottom: 30
+  },
+  memeImg: {
+    width: "100%",
+    height: 300,
+    borderRadius: 10
+  },
+  shareButtons: {
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "space-between",
+    marginTop: 5
+  },
+  leftButtons: {
+    display: "flex",
+    flexDirection: "row",
+    alignItems: "flex-end"
+  },
+  rightButtons: {
+    display: "flex",
+    flexDirection: "row",
+    alignItems: "flex-end"
+  }
+});
+
 export default Meme;

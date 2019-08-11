@@ -1,19 +1,24 @@
 import React, { useState } from "react";
-import { Text, View, TouchableOpacity, Image } from "react-native";
+import { Text, View, TouchableOpacity, Image, StyleSheet } from "react-native";
 
 const CameraButton = props => {
   const { navigate } = props;
   return (
     <TouchableOpacity
-      style={{ backgroundColor: "#FFA649", padding: 25, borderRadius: 200 }}
+      style={styles.cameraButton}
       onPress={() => navigate("Camera")}
     >
       <Image
         source={require("../../img/camera.png")}
-        style={{ width: 30, height: 30 }}
+        style={styles.cameraImg}
       />
     </TouchableOpacity>
   );
 };
+
+const styles = StyleSheet.create({
+  cameraButton: { backgroundColor: "#FFA649", padding: 25, borderRadius: 200 },
+  cameraImg: { width: 30, height: 30 }
+});
 
 export default CameraButton;
